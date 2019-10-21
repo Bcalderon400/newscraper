@@ -23,7 +23,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // mongoose connection
-mongoose.connect("mongodb://localhost/newscraper");
+mongoose.connect("mongodb://localhost/scraped_news");
 var db = mongoose.connection;
 
 // db connection error
@@ -33,7 +33,11 @@ db.once("open", function() {
 });
 
 // port
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3030;
+
+// controller route
+var routes = require("./controller/controller");
+app.use("/", routes);
 
 // listen to local network
 app.listen(port, function() {

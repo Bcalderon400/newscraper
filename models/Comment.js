@@ -7,8 +7,7 @@ var CommentSchema = new Schema({
         title: String
     },
     body: {
-        type: String,
-        required: true
+        type: String
     }
 });
 

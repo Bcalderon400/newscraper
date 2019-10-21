@@ -4,12 +4,10 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 var ArticleSchema = new Schema({
     title: {
-        title: String,
-        required: true
+        title: String
     },
     link: {
-        type: String,
-        required: true
+        type: String
     },
     comment: [{
         type: Schema.Types.ObjectId,

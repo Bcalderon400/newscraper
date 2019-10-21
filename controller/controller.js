@@ -25,9 +25,10 @@ router.get("/scrape", function(req, res) {
 
         // grab articles
         $(".c-entry-box--compact__title").each(function(i, element) {
-            var result();
+            var result = {};
 
-            result.title = $(this).children("a")
+            result.title = $(this)
+                .children("a")
                 .text();
 
             result.link = $(this)
@@ -49,15 +50,14 @@ router.get("/scrape", function(req, res) {
                                 } else {
                                     console.log(doc);
                                 }
-                            })
+                            });
                         }
-                    })
-
+                    });
                 } else {
-                    console.log("Article already exists.")
+                    console.log("Article already exists.");
                 }
             } else {
-                console.log("Not saved in Database.")
+                console.log("Not saved to DB, missing data");
             }
         });
         res.redirect("/");
