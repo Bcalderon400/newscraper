@@ -23,7 +23,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // mongoose connection
-mongoose.connect("mongodb://localhost/scraped_news");
+mongoose.connect("mongodb://localhost/mongoHeadlines");
 var db = mongoose.connection;
 
 // db connection error
