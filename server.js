@@ -23,11 +23,8 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // mongoose connection
-// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI =
-  process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-
-mongoose.connect(MONGODB_URI);
+mongoose.connect("mongodb://localhost/mongoHeadlines");
+var db = mongoose.connection;
 
 // db connection error
 db.on("error", console.error.bind(console, "connection error: "));
