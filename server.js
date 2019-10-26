@@ -24,7 +24,7 @@ app.set("view engine", "handlebars");
 
 // mongoose connection
 mongoose.connect(
-  "mongodb://heroku_grvb69vg:Theboss420!@ds237308.mlab.com:37308/heroku_grvb69vg"
+  "mongodb://brian:newpassword123@ds237308.mlab.com:37308/heroku_grvb69vg"
 );
 var db = mongoose.connection;
 
