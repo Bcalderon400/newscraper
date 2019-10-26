@@ -9,9 +9,9 @@ var app = express();
 // dev logger
 app.use(logger("dev"));
 app.use(
-    bodyParser.urlencoded({
-        extended: false
-    })
+  bodyParser.urlencoded({
+    extended: false
+  })
 );
 
 // set public folder to static
@@ -23,13 +23,15 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // mongoose connection
-mongoose.connect("mongodb://localhost/mongoHeadlines");
+mongoose.connect(
+  "mongodb://heroku_grvb69vg:Theboss420!@ds237308.mlab.com:37308/heroku_grvb69vg"
+);
 var db = mongoose.connection;
 
 // db connection error
 db.on("error", console.error.bind(console, "connection error: "));
 db.once("open", function() {
-    console.log("We are connected through mongoose");
+  console.log("We are connected through mongoose");
 });
 
 // port
@@ -41,5 +43,5 @@ app.use("/", routes);
 
 // listen to local network
 app.listen(port, function() {
-    console.log("Listening on https://localhost: " + port);
+  console.log("Listening on https://localhost: " + port);
 });
